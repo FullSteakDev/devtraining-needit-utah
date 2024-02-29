@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description>The script checks if the "CD Reference" field is starting with the letter "C" followed by "D" and  it ends with "@".</description>
+        <field/>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>onSubmitCDRef</name>
+        <order/>
+        <script><![CDATA[function onSubmit() {
+	var cdRef = g_form.getValue('u_cd_reference');
+    var c = 'C';
+    var d = 'D';
+    var a = '@';
+
+    if (cdRef.charAt(0) == c && cdRef.charAt(1) == d && cdRef.charAt(cdRef.length - 1) == a) {
+        g_form.hideFieldMsg('u_cd_reference');
+        alert('Saved'); // Just to prove that the save is happening 
+    }
+    else { 
+        g_form.hideFieldMsg('u_cd_reference');    
+        g_form.showFieldMsg('u_cd_reference','The value must start with "CD", and end with the character "@"' + cdRef, 'error',false);
+        return false;
+    }
+}
+]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2024-02-28 13:13:27</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>4fcdfccfc360c610aef21f53e4013121</sys_id>
+        <sys_mod_count>327</sys_mod_count>
+        <sys_name>onSubmitCDRef</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="NeedIt" source="x_58872_needit">6ead8e780f603200cd674f8ce1050ed1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
+        <sys_update_name>sys_script_client_4fcdfccfc360c610aef21f53e4013121</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2024-02-28 15:59:12</sys_updated_on>
+        <table>x_58872_needit_needit</table>
+        <type>onSubmit</type>
+        <ui_type>10</ui_type>
+        <view/>
+    </sys_script_client>
+</record_update>
